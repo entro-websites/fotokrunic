@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foto Krunić - fotografisanje, štampa i limuzine, Vršac</title>
+<meta name="description" content="Foto Krunić iz Vršca - fotografisanje venčanja i proslava, digitalna i solventna štampa, štampa na tekstilu, izrada pečata i iznajmljivanje limuzina. 35 godina iskustva.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#0088cc;
+    --accent-dark:#00699e;
+    --accent-darker:#004d73;
+    --accent-soft:#eaf6fc;
+    --accent-soft-2:#d3edfa;
+    --accent-glow:rgba(0,136,204,0.16);
+    --bg:#ffffff;
+    --bg-off:#f7fbfd;
+    --text:#0d1b24;
+    --text-muted:rgba(13,27,36,0.68);
+    --text-faint:rgba(13,27,36,0.46);
+    --border:rgba(13,27,36,0.1);
+    --radius-btn:8px;
+    --radius-card:18px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Open Sans',sans-serif;
+    font-weight:400;
+    color:var(--text);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{
+    font-family:'Open Sans',sans-serif;
+    font-weight:800;
+    line-height:1.15;
+    margin:0 0 16px 0;
+    color:var(--text);
+  }
+  p{
+    line-height:1.65;
+    color:var(--text-muted);
+    margin:0 0 16px 0;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  ul{list-style:none;margin:0;padding:0;}
+
+  .wrap{
+    max-width:1280px;
+    margin:0 auto;
+    padding-left:24px;
+    padding-right:24px;
+  }
+  @media (max-width:768px){
+    .wrap{padding-left:20px;padding-right:20px;}
+  }
+
+  .eyebrow{
+    display:inline-block;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--accent-dark);
+    margin-bottom:12px;
+  }
+
+  .section-sub{
+    max-width:560px;
+    font-size:17px;
+  }
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 28px;
+    border-radius:var(--radius-btn);
+    font-weight:700;
+    font-size:15px;
+    cursor:pointer;
+    border:1.5px solid transparent;
+    transition:transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--accent-dark);
+    color:#ffffff;
+    box-shadow:0 8px 24px var(--accent-glow);
+  }
+  .btn-primary:hover{
+    background:var(--accent-darker);
+    box-shadow:0 12px 28px rgba(0,136,204,0.28);
+    transform:translateY(-1px);
+  }
+  .btn-secondary{
+    background:transparent;
+    color:var(--accent-darker);
+    border:1.5px solid var(--accent-dark);
+  }
+  .btn-secondary:hover{
+    background:var(--accent-soft);
+  }
+
+  /* Header */
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:#ffffff;
+    border-bottom:1px solid var(--border);
+    transition:background 0.25s ease, backdrop-filter 0.25s ease, box-shadow 0.25s ease;
+  }
+  .site-header.scrolled{
+    background:rgba(255,255,255,0.82);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    box-shadow:0 4px 20px rgba(13,27,36,0.06);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:16px;
+    padding-bottom:16px;
+    gap:24px;
+  }
+  .logo img{height:42px;width:auto;}
+  .nav-desktop ul{
+    display:flex;
+    gap:32px;
+  }
+  .nav-desktop a{
+    font-weight:600;
+    font-size:15px;
+    color:var(--text);
+    transition:color 0.15s ease;
+  }
+  .nav-desktop a:hover{color:var(--accent-dark);}
+  .nav-cta{margin-left:auto;}
+  .hamburger{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    width:40px;
+    height:40px;
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    padding:0;
+  }
+  .hamburger span{
+    display:block;
+    height:2px;
+    width:26px;
+    background:var(--text);
+    border-radius:2px;
+    transition:transform 0.2s ease, opacity 0.2s ease;
+  }
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .mobile-menu{
+    max-height:0;
+    overflow:hidden;
+    background:#ffffff;
+    border-bottom:1px solid transparent;
+    transition:max-height 0.3s ease, border-color 0.3s ease;
+  }
+  .mobile-menu.open{
+    max-height:400px;
+    border-color:var(--border);
+  }
+  .mobile-menu ul{
+    padding:16px 20px 8px 20px;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  .mobile-menu a{
+    display:block;
+    padding:12px 0;
+    font-weight:600;
+    font-size:16px;
+    border-bottom:1px solid var(--border);
+    color:var(--text);
+  }
+  .mobile-menu .btn{
+    margin:12px 20px 20px 20px;
+    width:calc(100% - 40px);
+  }
+
+  @media (max-width:991px){
+    .nav-desktop, .nav-cta{display:none;}
+    .hamburger{display:flex;}
+  }
+
+  /* Hero */
+  .hero{
+    padding-top:72px;
+    padding-bottom:72px;
+    background:var(--bg-off);
+  }
+  .hero-inner{
+    display:flex;
+    align-items:center;
+    gap:56px;
+  }
+  .hero-text{flex:1 1 480px;}
+  .hero-text h1{
+    font-size:clamp(34px, 5vw, 54px);
+    max-width:600px;
+  }
+  .hero-sub{
+    font-size:18px;
+    max-width:480px;
+    margin-bottom:28px;
+  }
+  .hero-media{
+    flex:1 1 420px;
+    max-width:480px;
+  }
+  .hero-media img{
+    width:100%;
+    height:auto;
+    border-radius:var(--radius-card);
+    box-shadow:0 24px 60px rgba(13,27,36,0.14);
+  }
+  @media (max-width:900px){
+    .hero-inner{flex-direction:column;}
+    .hero-text, .hero-media{flex:1 1 auto; max-width:100%;}
+  }
+
+  /* Pain section */
+  .pain{
+    padding-top:64px;
+    padding-bottom:64px;
+    background:var(--accent-soft);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+  .pain p{
+    max-width:720px;
+    margin:0 auto;
+    font-size:19px;
+    color:var(--text);
+    text-align:center;
+  }
+
+  /* Generic section spacing */
+  section{
+    padding-top:96px;
+    padding-bottom:96px;
+  }
+  @media (max-width:768px){
+    section{padding-top:64px;padding-bottom:64px;}
+  }
+
+  section[id]{scroll-margin-top:90px;}
+
+  .services > .wrap > h2{
+    max-width:640px;
+    font-size:clamp(28px, 3.4vw, 38px);
+  }
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));
+    gap:24px;
+    margin-top:48px;
+  }
+  .service-card{
+    background:#ffffff;
+    border:1px solid var(--border);
+    border-radius:var(--radius-card);
+    padding:28px 24px;
+    transition:box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .service-card:hover{
+    box-shadow:0 20px 40px rgba(13,27,36,0.08);
+    transform:translateY(-3px);
+  }
+  .icon-badge{
+    width:52px;
+    height:52px;
+    border-radius:14px;
+    background:var(--accent-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:18px;
+  }
+  .icon-badge svg{
+    width:26px;
+    height:26px;
+    stroke:var(--accent-dark);
+  }
+  .service-card h3{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .service-card p{
+    font-size:15px;
+    margin-bottom:0;
+  }
+
+  /* Feature split sections (limuzine, about) */
+  .limuzine{background:var(--bg-off);}
+  .limuzine-inner, .about-inner{
+    display:flex;
+    align-items:center;
+    gap:56px;
+  }
+  .limuzine-media, .about-media{
+    flex:1 1 460px;
+  }
+  .limuzine-text, .about-text{
+    flex:1 1 460px;
+  }
+  .limuzine-media img, .about-media img{
+    width:100%;
+    height:auto;
+    border-radius:var(--radius-card);
+    box-shadow:0 20px 48px rgba(13,27,36,0.12);
+  }
+  .about-inner{flex-direction:row-reverse;}
+  .limuzine-text h2, .about-text h2{
+    font-size:clamp(26px, 3vw, 34px);
+    max-width:480px;
+  }
+  .limuzine-text p, .about-text p{
+    max-width:480px;
+    font-size:16px;
+  }
+  @media (max-width:900px){
+    .limuzine-inner, .about-inner{flex-direction:column;}
+    .about-inner{flex-direction:column;}
+  }
+
+  /* Stats */
+  .stats{
+    background:var(--accent-darker);
+    padding-top:72px;
+    padding-bottom:72px;
+  }
+  .stats-inner{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    flex-wrap:wrap;
+    justify-content:center;
+    text-align:center;
+  }
+  .stat-number{
+    font-size:clamp(64px, 10vw, 96px);
+    font-weight:800;
+    color:#ffffff;
+    line-height:1;
+  }
+  .stat-label{
+    font-size:18px;
+    color:rgba(255,255,255,0.86);
+    max-width:280px;
+    text-align:left;
+  }
+  @media (max-width:480px){
+    .stats-inner{flex-direction:column;text-align:center;}
+    .stat-label{text-align:center;max-width:100%;}
+  }
+
+  /* Final CTA */
+  .cta-final{
+    text-align:center;
+    background:var(--accent-soft);
+  }
+  .cta-final .wrap{
+    max-width:640px;
+  }
+  .cta-final h2{
+    font-size:clamp(28px, 3.6vw, 38px);
+  }
+  .cta-final p{
+    font-size:17px;
+    margin-bottom:32px;
+  }
+  .cta-note{
+    margin-top:20px;
+    font-size:14px;
+    color:var(--text-faint);
+  }
+
+  /* Footer */
+  .site-footer{
+    border-top:1px solid var(--border);
+    padding-top:40px;
+    padding-bottom:40px;
+    background:#ffffff;
+  }
+  .footer-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .footer-logo{height:34px;width:auto;}
+  .footer-inner p{
+    margin:0;
+    font-size:14px;
+    color:var(--text-faint);
+  }
+  .footer-nav{
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .footer-nav a{
+    font-size:14px;
+    font-weight:600;
+    color:var(--text-muted);
+  }
+  .footer-nav a:hover{color:var(--accent-dark);}
+
+  /* Reveal animation */
+  .reveal{
+    opacity:1;
+    transform:translateY(0);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.pre{
+    opacity:1;
+    transform:translateY(12px);
+  }
+  .reveal.pre.in-view{
+    opacity:1;
+    transform:translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <div class="wrap header-inner">
+    <a href="#home" class="logo"><img src="assets/logo.png" alt="Foto Krunić logo"></a>
+    <nav class="nav-desktop">
+      <ul>
+        <li><a href="#usluge">Usluge</a></li>
+        <li><a href="#limuzine">Limuzine</a></li>
+        <li><a href="#o-nama">O nama</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a href="#kontakt" class="btn btn-primary nav-cta">Pošalji upit za termin</a>
+    <button class="hamburger" id="hamburger" aria-label="Otvori meni" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#usluge">Usluge</a></li>
+      <li><a href="#limuzine">Limuzine</a></li>
+      <li><a href="#o-nama">O nama</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="#kontakt" class="btn btn-primary">Pošalji upit za termin</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" id="home">
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <h1>Fotografija, štampa i limuzine za tvoj najvažniji dan</h1>
+        <p class="hero-sub">Iz Vršca vodimo ovaj posao 35 godina - venčanja, proslave, štampa za firme i luksuzan prevoz, sve na jednom mestu.</p>
+        <a href="#kontakt" class="btn btn-primary">Zakaži termin ili limuzinu</a>
+      </div>
+      <div class="hero-media">
+        <img src="assets/1771-2.jpg" alt="Fotoaparat i objektiv na drvenom stolu u foto studiju">
+      </div>
+    </div>
+  </section>
+
+  <section class="pain reveal pre">
+    <div class="wrap">
+      <p>Organizuješ venčanje ili proslavu i treba ti fotograf, pozivnice, štampa i prevoz - sve to na vreme, bez trčanja po pet različitih firmi. Kod nas to rešavaš na jednom mestu, u Vršcu, kod ljudi koji ovaj posao rade 35 godina.</p>
+    </div>
+  </section>
+
+  <section class="services" id="usluge">
+    <div class="wrap">
+      <span class="eyebrow">Šta radimo</span>
+      <h2>Usluge koje pokrivamo pod jednim krovom</h2>
+      <p class="section-sub">Od fotografisanja venčanja do pečata za tvoju firmu, sve pravimo u našoj radnji u Vršcu.</p>
+
+      <div class="services-grid">
+
+        <div class="service-card reveal pre">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></svg>
+          </div>
+          <h3>Fotografisanje svečanosti</h3>
+          <p>Venčanja, proslave, krštenja, mature. Snimamo ceo dan, od pripreme do poslednjeg plesa.</p>
+        </div>
+
+        <div class="service-card reveal pre">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V4h12v5"/><rect x="4" y="9" width="16" height="8" rx="1"/><path d="M6 17v4h12v-4"/><circle cx="17" cy="12" r="0.6"/></svg>
+          </div>
+          <h3>Digitalna i solventna štampa</h3>
+          <p>Plakati, baneri i nalepnice velikog formata, u bojama koje traju na suncu i kiši.</p>
+        </div>
+
+        <div class="service-card reveal pre">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4 4 7l2 3 2-1v11h8V9l2 1 2-3-4-3-2 2h-2z"/></svg>
+          </div>
+          <h3>Štampa na tekstilu</h3>
+          <p>Majice, kačketi i peškiri sa tvojim logom ili motivom, za firme i proslave.</p>
+        </div>
+
+        <div class="service-card reveal pre">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4L7.5 17l.9-5L4.8 8.3l5-.7L12 3z"/></svg>
+          </div>
+          <h3>Zlatotisak štampa</h3>
+          <p>Pozivnice i čestitke sa zlatnim i srebrnim slovima, za svečaniji utisak.</p>
+        </div>
+
+        <div class="service-card reveal pre">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 5 14h5l-1 7 8-11h-5l1-7z"/></svg>
+          </div>
+          <h3>Lasersko graviranje</h3>
+          <p>Graviranje na drvetu, metalu i staklu, za poklone, pehare i pločice sa imenom.</p>
+        </div>
+
+        <div class="service-card reveal pre">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M8.5 7.5 20 18M20 6 8.5 16.5"/></svg>
+          </div>
+          <h3>Rezanje PVC folije</h3>
+          <p>Natpisi za izloge, vozila i reklamne table, isečeni tačno po tvojoj meri.</p>
+        </div>
+
+        <div class="service-card reveal pre">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M4 6.5l8 6.5 8-6.5"/></svg>
+          </div>
+          <h3>Pozivnice</h3>
+          <p>Biraš dizajn, mi štampamo. Za venčanja i sve vrste proslava, u tiražu koji ti treba.</p>
+        </div>
+
+        <div class="service-card reveal pre">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l11-6v14l-11-6z"/><path d="M14 8.5c1.8 0 3 1.6 3 3.5s-1.2 3.5-3 3.5"/><path d="M6 14v3a1.5 1.5 0 0 0 3 0v-2"/></svg>
+          </div>
+          <h3>Reklamni materijal</h3>
+          <p>Vizitkarte, flajeri i katalozi, sve što ti treba da predstaviš svoju firmu.</p>
+        </div>
+
+        <div class="service-card reveal pre">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3.5" width="10" height="7" rx="1"/><path d="M9 10.5v3h6v-3"/><rect x="5" y="16.5" width="14" height="4" rx="1"/></svg>
+          </div>
+          <h3>Izrada pečata</h3>
+          <p>Pečati za firme, radnje i udruženja, gotovi za nekoliko dana.</p>
+        </div>
+
+        <div class="service-card reveal pre">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 15.5V12l2-4h13l2 4v3.5"/><path d="M3.5 15.5h17v3a1 1 0 0 1-1 1H4.5a1 1 0 0 1-1-1v-3z"/><circle cx="7.5" cy="18" r="1.2"/><circle cx="16.5" cy="18" r="1.2"/></svg>
+          </div>
+          <h3>Iznajmljivanje luksuznih limuzina</h3>
+          <p>Bela i crna limuzina za mladence, ukrašene i sa vozačem, za tvoj dan venčanja.</p>
+        </div>
+
+        <div class="service-card reveal pre">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17.5a4 4 0 0 1-1-7.9 5 5 0 0 1 9.6-1.6A4.2 4.2 0 0 1 17.5 17.5H7z"/><path d="M12 10v6M9.5 12.5 12 10l2.5 2.5"/></svg>
+          </div>
+          <h3>Online slanje slika i fajlova</h3>
+          <p>Šalješ nam fajlove sa svog računara, mi štampamo i javljamo kad je gotovo.</p>
+        </div>
+
+        <div class="service-card reveal pre">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="1.5"/><circle cx="9" cy="10" r="1.6"/><path d="M4.5 17 9.5 12l3 3 3-3.5 4 5.5"/></svg>
+          </div>
+          <h3>Besplatne slike u elektronskom formatu</h3>
+          <p>Uz štampane fotografije dobijaš i digitalne kopije, bez dodatne naplate.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="limuzine" id="limuzine">
+    <div class="wrap limuzine-inner">
+      <div class="limuzine-media reveal pre">
+        <img src="assets/10548978_802612559760326_8181418955392798370_o.jpg" alt="Dve bele ukrašene limuzine parkirane ispred crkve za venčanje">
+      </div>
+      <div class="limuzine-text reveal pre">
+        <span class="eyebrow">Prevoz za veliki dan</span>
+        <h2>Limuzine za mladence, ukrašene i spremne</h2>
+        <p>Iznajmljujemo bele i crne limuzine sa vozačem, ukrašene cvećem i trakama za venčanje. Rezervišeš datum unapred i dolazimo na dogovorenu adresu u Vršcu i okolini.</p>
+        <a href="#kontakt" class="btn btn-secondary">Proveri termin za limuzinu</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="o-nama">
+    <div class="wrap about-inner">
+      <div class="about-media reveal pre">
+        <img src="assets/radnja-scaled.jpg" alt="Fasada radnje Foto Krunić u Vršcu sa oznakama Fujifilm i Digital Photo Center">
+      </div>
+      <div class="about-text reveal pre">
+        <span class="eyebrow">O nama</span>
+        <h2>Foto Krunić, radnja koja stoji iza svog posla</h2>
+        <p>Radimo u Vršcu 35 godina. Počeli smo kao foto radnja, a danas pokrivamo fotografisanje, digitalnu i solventnu štampu, štampu na tekstilu, izradu pečata, reklamni materijal i iznajmljivanje limuzina za venčanja.</p>
+        <p>Naš pristup je jednostavan. Dogovorimo se šta ti treba, uradimo posao kako smo rekli i budemo tu i sledeći put kad ti zatreba - za novo venčanje, novu proslavu ili novu porudžbinu za firmu.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="wrap stats-inner">
+      <div class="stat-number">35</div>
+      <div class="stat-label">godina sa vama, u fotografiji i štampi u Vršcu.</div>
+    </div>
+  </section>
+
+  <section class="cta-final" id="kontakt">
+    <div class="wrap">
+      <h2>Rezerviši svoj termin</h2>
+      <p>Javi nam datum venčanja ili proslave i reci šta ti treba - fotografisanje, štampu ili limuzinu. Vraćamo ti se sa ponudom i slobodnim terminima.</p>
+      <a href="#" class="btn btn-primary">Pošalji upit za termin</a>
+      <p class="cta-note">Radnja Foto Krunić nalazi se u Vršcu.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <img src="assets/logo.png" alt="Foto Krunić logo" class="footer-logo">
+    <p>Foto Krunić - Vršac, 35 godina sa vama.</p>
+    <nav class="footer-nav">
+      <a href="#usluge">Usluge</a>
+      <a href="#limuzine">Limuzine</a>
+      <a href="#o-nama">O nama</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Sticky header blur on scroll
+  var header = document.getElementById('site-header');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 12){
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // Mobile menu toggle
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', function(){
+    var isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  // Close mobile menu when a link is clicked
+  mobileMenu.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Scroll reveal (progressive enhancement, content already visible by default)
+  if('IntersectionObserver' in window){
+    var revealEls = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.15});
+    revealEls.forEach(function(el){ observer.observe(el); });
+  }
+</script>
+
+</body>
+</html>
